@@ -1,0 +1,133 @@
+<script type="text/javascript" src="js/clientes.js"></script>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header" style="background-color:#85ccff">
+                Control de Clientes
+                <div class="form-inline float-right">
+                    <button class="btn btn-outline-danger">X</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div id="divDetalleCliente" class="col-sm-3">
+                        <div class="card">
+                            <div class="card-header" style="background-color:#c6efff;">
+                                Detalles de Cliente
+                                <div class="form-inline float-right">
+                                    <button class="btn btn-sm btn-outline-danger" onclick="ocultarSeccionDetalleCliente();">X</button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="form">
+                                    <div class="form-group">
+                                        <label for="txtCodigoCliente">C&oacute;digo Cliente:</label>
+                                        <input id="txtCodigoCliente" type="text" class="form-control" readonly />
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <label for="txtNombre">Nombre:</label>
+                                        <input id="txtNombre" type="text" class="form-control" />
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="txtApaterno">Apellido Paterno:</label>
+                                        <input id="txtApaterno" type="text" class="form-control" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="txtAmaterno">Apellido Materno:</label>
+                                        <input id="txtAmaterno" type="text" class="form-control" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="txtTelefono">Telefono:</label>
+                                        <input id="txtTelefono" type="text" class="form-control" />
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="txtCorreo">Correo Electronico:</label>
+                                        <input id="txtCorreo" type="email" class="form-control" />
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="txtFechaN">Fecha Nacimiento:</label>
+                                        <input id="txtFechaN" type="date" class="form-control" />
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="txtContraseña">Contraseña:</label>
+                                        <input id="txtContraseña" type="password" class="form-control" />
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="divChbStatus">Estatus:</label>
+                                        <div id="divChbStatus" class="custom-control custom-checkbox">
+                                            <input id="chbStatus" type="checkbox" class="custom-control-input">
+                                            <label class="custom-control-label" for="defaultUnchecked">Inactivo</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-inline mt-4 float-right">
+                                        <button type="button" class="btn btn-outline-success border-0" onclick="limpiarCamposDetalleCliente();">
+                                            <i class="fas fa-plus" style="font-size: 20px;"></i><br>Nuevo</button>
+                                        <button type="button" class="btn btn-outline-info border-0" onclick="guardarCliente();">
+                                            <i class="far fa-save" style="font-size: 20px;"></i><br>Guardar</button>
+                                        <button type="button" class="btn btn-outline-danger border-0" onclick="eliminarCliente();">
+                                            <i class="fas fa-ban" style="font-size: 20px;"></i><br>Eliminar</button>
+                                    </div>
+                                </div>
+                            </div>        
+                        </div>                        
+                    </div>
+                    <div id="divCatalogoCliente" class="col-sm-9">
+                        <div class="card">
+                            <div class="card-header" style="background-color:#c6efff;">
+                                Catalogo Cliente
+                                <div class="form-inline float-right">
+                                    <button class="btn btn-sm btn-outline-success" onclick="mostrarSeccionDetalleCliente();">+</button>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover text-center">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Código Cliente</th>       
+                                                        <th>Nombre</th>       
+                                                        <th>Apellido Paterno</th> 
+                                                        <th>Apellido Materno</th>
+                                                        <th>Telefono</th>       
+                                                        <th>Correo Electrónico</th> 
+                                                        <th>Fecha Nacimiento</th>       
+                                                        <th>Contraseña</th> 
+                                                        <th>Estatus</th> 
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="tbodyClientes">
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>        
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    refrescarTablaCliente();
+</script>

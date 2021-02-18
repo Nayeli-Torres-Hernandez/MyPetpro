@@ -1,0 +1,147 @@
+<script type="text/javascript" src="js/mascotas.js"></script>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header" style="background-color:#85ccff">
+                Control de Animales
+                <div class="form-inline float-right">
+                    <button class="btn btn-outline-danger"><i class="fa fa-window-close"></i></button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div id="divDetalleAnimal" class="col-sm-3">
+                        <div class="card">
+                            <div class="card-header" style="background-color:#c6efff">
+                                Detalles de Animal
+                                <div class="form-inline float-right">
+                                    <button class="btn btn-sm btn-outline-danger" onclick="ocultarSeccionDetalleAnimal();"><i class="fa fa-window-close"></i></button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="form">
+
+                                    <div class="form-group">
+                                        <label for="txtCodigoAnimal">C&oacute;digo Animal:</label>
+                                        <input id="txtCodigoAnimal" type="text" class="form-control" readonly />
+                                        <br>
+                                        <input id="txtCodigoInterno" type="text" class="form-control" readonly />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="txtNombre">Nombre:</label>
+                                        <input id="txtNombre" type="text" class="form-control"  />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtEspecie">Especie:</label>
+                                        <input id="txtEspecie" type="text" class="form-control"  />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="txtRaza">Raza:</label>
+                                        <input id="txtRaza" type="text" class="form-control"  />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="txtPrecio">Precio Compra:</label>
+                                        <input id="txtPrecioCompra" type="number" class="form-control" />
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="txtPrecio">Precio Venta:</label>
+                                        <input id="txtPrecioVenta" type="number" class="form-control" /> <!--Le puse type="number" en vez de double porque me marcaba error-->
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="txtNombre">Existencias</label>
+                                        <input id="txtExistencia" type="number" class="form-control" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="txtFechaNac">Fecha Nacimiento:</label>
+                                        <input id="txtFechaNac"  type="text"  class="form-control" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="txtFechaLlegada">Fecha Llegada:</label>
+                                        <input id="txtFechaLlegada"  type="text" class="form-control"  />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="divChbStatus">Estatus:</label>
+                                        <div id="divChbStatus" class="custom-control custom-checkbox">
+                                            <input id="chbStatus" type="checkbox" class="custom-control-input">
+                                            <label class="custom-control-label" for="defaultUnchecked">Activo</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <!--<div class="form">
+                                        <div class="form-group">
+                                            <img id="imgFoto" style="width : 100%" />
+                                            <input id="inputFoto"
+                                                   type="file"
+                                                   accept="image/png"
+                                                   class="form-control"
+                                                   onchange="cargarFotografia(this);" />
+                                            <input id="txtBase64" type="text" class="form-control" />
+                                        </div>
+                                    </div>              CREO QUE NO VA FOTO A QUI   -->
+                                    <div class="form-inline mt-4 float-right">
+                                        <button type="button" class="btn btn-outline-success border-0" onclick="limpiarCamposDetalleAnimal();">
+                                            <i class="fas fa-plus" style="font-size: 20px;"></i><br>Nuevo</button>
+                                        <button type="button" class="btn btn-outline-info border-0" onclick="guardarAnimal();">
+                                            <i class="far fa-save" style="font-size: 20px;"></i><br>Guardar</button>
+                                        <button type="button" class="btn btn-outline-danger border-0" onclick="eliminarAnimal();">
+                                            <i class="fas fa-ban" style="font-size: 20px;"></i><br>Eliminar</button>
+                                    </div>
+                                </div>
+                            </div>        
+                        </div>                        
+                    </div>
+                    <div id="divCatalogoAnimal" class="col-sm-9">
+                        <div class="card">
+                            <div class="card-header" style="background-color:#c6efff">
+                                Catalogo animal
+                                <div class="form-inline float-right">
+                                    <button class="btn btn-sm btn-outline-success" onclick="mostrarSeccionDetalleAnimal();"><i class="fas fa-plus-square"></i></button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover text-center">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Codigo Animal</th>
+                                                        <th>Nombre</th>
+                                                        <th>Especie</th>
+                                                        <th>Raza</th>
+                                                        <th>Precio</th>
+                                                        <th>Existencias</th>
+                                                        <th>Fecha Nacimiento</th>
+                                                        <th>Fecha Llegada</th>
+                                                        <th>Descripcion</th>
+                                                        <th>Estatus</th>  
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="tbodyMascotas">
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    //inicializarModulo();
+    ocultarSeccionDetalleMercancia();
+    refrescarTablaAnimal();
+</script>
